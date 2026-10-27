@@ -3,14 +3,16 @@
   "name": "Lending Business Team for GrokBot",
   "description": "A GrokBot agent team that runs a business-purpose real-estate lender's partner program, partner recruiting, borrower follow-up and GoHighLevel account, with the owner approving every outbound action.",
   "entry_point": "START-HERE.md",
-  "primary_bot": "Chief of Staff",
+  "lead_bot": "Chief of Staff",
+  "repo_url": "https://github.com/jbellsolutions/grokbot-lending-team",
   "workspace": "/workspace/lending-team",
+  "ghl_hub_command": "/workspace/lending-team/ghl-super-hub/ghl",
+  "routine_switch_file": "/workspace/lending-team/context/routines-on.md",
   "agents": [
     {
       "name": "Chief of Staff",
       "charter": "agents/01-chief-of-staff.md",
       "phase": 1,
-      "primary": true,
       "skills": [
         "getting-started",
         "morning-brief-and-scorecard",
@@ -19,7 +21,8 @@
       "routines": [
         "routines/morning-brief.prompt",
         "routines/weekly-scorecard.prompt"
-      ]
+      ],
+      "pinned": true
     },
     {
       "name": "GHL Operator",
@@ -100,15 +103,16 @@
       "install": "bash install.sh --link"
     }
   ],
-  "required_approval_actions": [
-    "send or publish any external message",
-    "launch, change or grow a campaign, or load a list",
-    "create, publish or change a GHL workflow, form, pipeline, custom field or calendar",
-    "accept or reject a partner",
-    "change program facts, terms or approved claims",
-    "export contact data",
-    "create or turn on a routine",
-    "spend money or start a subscription"
+  "ask_first_rules_location": "Settings → General → Auto-review (the owner adds these)",
+  "ask_first_rules": [
+    "Ask first before sending any email, text or message to anyone outside this Grok account.",
+    "Ask first before launching a Smartlead or Instantly campaign, changing its copy or volume, or adding leads to it.",
+    "Ask first before creating, publishing or changing a GoHighLevel workflow, form, pipeline, custom field or calendar.",
+    "Ask first before accepting or rejecting a partner application in GoHighLevel.",
+    "Ask first before exporting contacts from GoHighLevel.",
+    "Ask first before editing /workspace/lending-team/context/program-facts.md.",
+    "Ask first before resuming or turning on a routine.",
+    "Ask first before buying anything or starting a subscription."
   ],
   "permanently_denied_actions": [
     "state, negotiate, approve or pay a referral fee or commission",

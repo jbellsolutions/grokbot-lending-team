@@ -20,22 +20,22 @@ Success means more funded loans each month. The owner gets there by approving dr
 3. **Files, not wake-ups.** Agents hand work to each other through files in `/workspace/lending-team/`. They wake another agent only to deliver an approved action. One agent asking another a one-line question is the biggest single waste of usage, so it isn't done.
 4. **Nothing external without a yes.** Every send, every new live workflow and every change to a partner's status waits for the owner's approval. See [policies/APPROVALS.md](policies/APPROVALS.md).
 5. **Build additively.** Never delete anything in GHL. New things start in Draft. Old things get renamed with a `ZZ-ARCHIVE |` prefix and stay put.
-6. **Seats, not logins.** Agents use their own GHL user and a scoped Private Integration token. They never use the owner's login. Secrets are entered only through GrokBot's masked secure form.
-7. **Lean on usage.** Five scheduled runs a day at full build, three in phase 1. Every routine stays silent when nothing changed. Webhooks replace polling.
+6. **Seats, not logins.** Agents use their own GHL user and a scoped Private Integration token. They never use the owner's login. Secrets are entered only by the owner: in a secure secret card, in Settings → Vault, or at a hidden prompt with Take over.
+7. **Lean on usage.** Eight scheduled runs a weekday at full build, four in phase 1. Every routine stays silent when nothing changed. Replies are read in each morning job and once at midday; a GHL webhook can make partner replies instant later.
 8. **Stop at loan processing.** The agents bring a lead to a complete handoff brief. From the quick app onward, a person handles it.
 
 ## 4. The team
 
 | Agent | Role in one line | Phase |
 |---|---|---|
-| [Chief of Staff](agents/01-chief-of-staff.md) | Primary bot. The owner's single point of contact: morning brief, approvals, routing, weekly scorecard | 1 |
+| [Chief of Staff](agents/01-chief-of-staff.md) | Pinned bot. The owner's single point of contact: morning brief, approvals, routing, weekly scorecard | 1 |
 | [GHL Operator](agents/02-ghl-operator.md) | GoHighLevel super user. Owns the account's structure, runs health checks, builds what the owner asks for in plain English | 1 |
 | [Affiliate Manager](agents/03-affiliate-manager.md) | Runs the partner lifecycle: onboarding, check-ins, reactivation, reply triage, referral tracking | 1 |
 | [Partner Recruiter](agents/04-partner-recruiter.md) | Cold outbound to realtors, brokers and builders through Smartlead or Instantly; hands interested people to the Affiliate Manager | 2 |
 | [Borrower Desk](agents/05-borrower-desk.md) | Speed-to-lead follow-through, database reactivation and past-client care; hands a complete brief to a person | 2 |
 | [Intent Scout](agents/90-reserved-intent-scout.md) | Reserved. Social intent signals for borrower and partner leads | Later |
 
-The Chief of Staff is set as the **primary bot**, so anything the owner says goes to it first. It routes the request to the right agent.
+The owner pins the Chief of Staff and talks to it first. It routes each request to the right agent.
 
 ```
                    Owner (phone)
@@ -89,28 +89,30 @@ Any agent that needs a structural change writes a request to `/workspace/lending
 
 Add an agent only once the one before it runs a full week without surprises and the weekly usage meter has room.
 
-## 8. Daily rhythm (Pacific time, weekdays)
+## 8. Daily rhythm (weekdays, in the owner's time zone)
 
 | Time | Who | What |
 |---|---|---|
 | 6:07 | GHL Operator | Health check: errors, stuck contacts, new leads without a first touch |
-| 6:23 | Affiliate Manager | Partner sweep: retag proposals, today's touch queue (40 max), personal drafts |
-| 6:41 | Partner Recruiter (phase 2) | Outbound stats, reply backlog, list health |
+| 6:23 | Affiliate Manager | Partner sweep: retag proposals, today's touch queue (40 max), personal drafts, overnight replies |
+| 6:41 | Partner Recruiter (phase 2) | Outbound stats, overnight replies, list health |
 | 6:53 | Borrower Desk (phase 2) | Unfinished quick apps, reactivation replies, past-client touches due |
 | 7:12 | Chief of Staff | Reads all four notes and sends the owner one morning brief |
-| Any time | Partner Recruiter / Affiliate Manager | Woken by a reply webhook, never by polling |
+| 12:37 pm | Affiliate Manager | Partner reply check |
+| 12:41 pm | Partner Recruiter (phase 2) | Outbound reply check |
+| 12:53 pm | Borrower Desk (phase 2) | Borrower reply check |
 | Fri 3:17 pm | Chief of Staff | Weekly scorecard |
 | 1st of month 8:37 | Affiliate Manager | Partner portfolio review |
 
 ## 9. Usage budget
 
-GrokBot usage resets weekly. On the $60 plan, plan for phase 1 alone at first.
+GrokBot usage resets weekly. On Premium, plan for phase 1 alone at first; Super and Ultra have larger weekly allowances. Watch **Weekly usage** in the account menu.
 
-- Five daily routines at full build. Each one reads, writes a short note and stops.
-- The Chief of Staff routine is the only one that messages the owner.
-- No routine runs more often than daily, apart from webhook-triggered reply handling.
-- If usage runs short before the weekly reset, pause in this order: Borrower Desk daily, Partner Recruiter daily, monthly review. The morning brief and the Affiliate Manager's daily run stay on longest.
-- Every routine prompt begins: "Lean run. If nothing changed, write 'no change' and stop."
+- Four scheduled runs a weekday in phase 1, eight at full build: one morning job per agent, the morning brief, and one midday reply check per lane. Each one reads, writes a short note and stops.
+- The Chief of Staff's routines are the only ones that message the owner.
+- No routine runs more than once a day, apart from each lane's midday reply check.
+- If usage runs short before the weekly reset, pause in this order: Borrower Desk routines, Partner Recruiter routines, monthly review. The morning brief and the Affiliate Manager's daily loop stay on longest.
+- Every routine first checks its switch in `context/routines-on.md`, then: "Lean run. If nothing changed, write 'no change' and stop."
 
 ## 10. Out of scope
 
@@ -123,6 +125,7 @@ GrokBot usage resets weekly. On the $60 plan, plan for phase 1 alone at first.
 
 - Every agent exists with its profile, skills and memory seeded.
 - GHL is connected through the GHL Operator's own seat and token, and `ghl hub doctor` passes.
+- The owner added the Ask first rules in Auto-review.
 - The account map is written and the owner has read it.
 - Every routine exists, ran once as a test that wrote nothing external, and is switched on only after the owner said yes.
 - The first morning brief has arrived.

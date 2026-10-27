@@ -42,7 +42,7 @@ This is an operating guide, not legal advice. The owner confirms anything marked
 
 - Borrower financial details, ID numbers and documents never go into chat, email drafts, agent memory or the shared folder. They belong in the owner's secure application only.
 - Contact data stays in GHL. No exports without the owner's yes.
-- Secrets go in only through GrokBot's secure form, and they're stored with owner-only file permissions. They're never printed or logged.
+- Secrets go in only through a secure secret card, Settings → Vault, or a hidden prompt the owner fills in with Take over. Any file that holds one is readable only by the computer's user. Secrets are never printed or logged.
 
 ## Being honest about automation
 

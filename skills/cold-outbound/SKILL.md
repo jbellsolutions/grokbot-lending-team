@@ -39,16 +39,18 @@ One campaign per partner type. Write down:
 
 ## Smartlead (recommended)
 
-- API key through the secure form.
-- Campaigns, sequences, leads and stats through the Smartlead API.
-- Reply webhook on the `EMAIL_REPLY` event, pointed at the Partner Recruiter's reply routine.
+- API key in a secure secret card named `SMARTLEAD_API_KEY`.
+- Campaigns, sequences, leads, stats and replies through the Smartlead API.
 
 ## Instantly
 
-- API key through the secure form.
-- Campaigns, leads and analytics through the Instantly API.
-- Reply webhook on `reply_received`, pointed at the same routine.
+- API key in a secure secret card named `INSTANTLY_API_KEY`.
+- Campaigns, leads, analytics and replies through the Instantly API.
 - Don't use the Instantly web app from the GrokBot computer. Its IP addresses get blocked.
+
+## Replies
+
+Pull new replies through the API in the morning check and again in the midday reply check. Don't set up a reply webhook: Smartlead's and Instantly's documented webhooks don't send the `Authorization` header that a Grok Bot routine needs.
 
 ## Daily check
 

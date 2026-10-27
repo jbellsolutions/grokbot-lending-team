@@ -1,9 +1,12 @@
+NAME: Weekly scorecard
 OWNER: Chief of Staff
-TRIGGER: CRON_TZ=America/Los_Angeles 17 15 * * 5
+WHEN: Every Friday at 3:17 PM
 PHASE: 1
-STATUS: PAUSED (turn on only after the owner says yes)
-
+STATUS: Created paused. Turned on only after the owner says yes.
+---
+Switch check: read /workspace/lending-team/context/routines-on.md. If "Weekly scorecard" isn't listed there as "on" or "test", write "Weekly scorecard: not switched on" to this month's file in /workspace/lending-team/log/ and stop.
 Isolation guard: work only in /workspace/lending-team/ and this owner's connected accounts. If /workspace/lending-team/context/owner.md is missing, write NO_CLIENT_SOURCE to the log and stop. Never use another bot's files, logins or memory.
 Lean run: read only what this job needs. If nothing changed, write "no change" and stop.
+GHL hub: run it as /workspace/lending-team/ghl-super-hub/ghl. If it won't start, run "bash install.sh" in that folder once, then go on.
 
-Run @morning-brief-and-scorecard for the Friday scorecard. Use this week's daily notes, GHL reads and the cold email tool's stats. Send the owner one screen: partner funnel, borrower funnel, past clients, health, three wins, three stalls, one focus for next week. Say where a number is unavailable; never estimate. Save a copy to /workspace/lending-team/log/scorecards/<date>.md.
+Use the morning-brief-and-scorecard skill for the Friday scorecard. Use this week's daily notes, GHL reads and the cold email tool's stats. Send the owner one screen: partner funnel, borrower funnel, past clients, health, three wins, three stalls, one focus for next week. Say where a number is unavailable; never estimate. Save a copy to /workspace/lending-team/log/scorecards/<date>.md.

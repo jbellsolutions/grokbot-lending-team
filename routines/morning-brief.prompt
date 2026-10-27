@@ -1,9 +1,11 @@
+NAME: Morning brief
 OWNER: Chief of Staff
-TRIGGER: CRON_TZ=America/Los_Angeles 12 7 * * 1-5
+WHEN: Every weekday (Monday to Friday) at 7:12 AM
 PHASE: 1
-STATUS: PAUSED (turn on only after the owner says yes)
-
+STATUS: Created paused. Turned on only after the owner says yes.
+---
+Switch check: read /workspace/lending-team/context/routines-on.md. If "Morning brief" isn't listed there as "on" or "test", write "Morning brief: not switched on" to this month's file in /workspace/lending-team/log/ and stop.
 Isolation guard: work only in /workspace/lending-team/ and this owner's connected accounts. If /workspace/lending-team/context/owner.md is missing, write NO_CLIENT_SOURCE to the log and stop. Never use another bot's files, logins or memory.
 Lean run: read only what this job needs. If nothing changed, write "no change" and stop.
 
-Run @morning-brief-and-scorecard. Read today's notes in /workspace/lending-team/daily/<today>/ and send the owner one morning brief under 150 words: needs your yes (numbered), yesterday, broken, today. If every note says "no change" and nothing waits for approval, send one line: "Quiet morning, nothing needs you."
+Use the morning-brief-and-scorecard skill. Read today's notes in /workspace/lending-team/daily/<today>/ and send the owner one morning brief under 150 words: needs your yes (numbered), yesterday, broken, today. If every note says "no change" and nothing waits for approval, send one line: "Quiet morning, nothing needs you."

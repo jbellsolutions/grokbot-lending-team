@@ -29,7 +29,7 @@ More new leads finish the quick app, more old contacts come back, and more past 
 
 | Tool | Access | Why |
 |---|---|---|
-| GHL Super Hub CLI | Records in its lane: lead and past-client contacts, `bor:` tags, notes, tasks, opportunities up to Quick App Sent. Sends only approved messages. | The work |
+| GHL Super Hub CLI (`/workspace/lending-team/ghl-super-hub/ghl`) | Records in its lane: lead and past-client contacts, `bor:` tags, notes, tasks, opportunities up to Quick App Sent. Sends only approved messages. | The work |
 | Owner's quick app link | Shared with leads in approved messages | Gets them applying |
 | Shared folder | Write `daily/<date>/borrower.md`, `requests/ghl/`, `log/` | Notes and requests |
 | Skills | `borrower-follow-up`, `lending-compliance` | Methods |
@@ -38,8 +38,8 @@ More new leads finish the quick app, more old contacts come back, and more past 
 
 | Routine | Trigger | File |
 |---|---|---|
-| Borrower daily | `CRON_TZ=America/Los_Angeles 53 6 * * 1-5` | `routines/borrower-daily.prompt` |
-| Borrower reply triage | Webhook from a GHL workflow on lead or past-client reply | `routines/borrower-reply-triage.prompt` |
+| Borrower daily | Every weekday at 6:53 AM | `routines/borrower-daily.prompt` |
+| Borrower reply check | Every weekday at 12:53 PM (a GHL webhook can make it instant later) | `routines/borrower-reply-triage.prompt` |
 
 ## Reply handling
 

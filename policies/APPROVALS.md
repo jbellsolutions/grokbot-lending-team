@@ -12,18 +12,22 @@ Every agent action falls into one of five tiers. When in doubt, treat the action
 
 ## Standing approvals
 
-The owner may give a standing yes for one exact template in one exact situation, for example: "send the booking-link reply to every interested outbound reply". The Chief of Staff records it in `context/standing-approvals.md` with the date and the template. It ends when the owner says so or when the template changes.
+The owner may give a standing yes for one exact template in one exact situation, for example: "send the booking-link reply to every interested outbound reply". The Chief of Staff records it in `context/standing-approvals.md` with the date and the template. It ends when the owner says so or when the template changes. The Ask first rule for outside messages still applies, so a send under a standing approval may still wait for the owner's confirm prompt. If nobody confirms within about 10 minutes, the draft goes into the next brief instead.
 
-## Require Approval rules to set in GrokBot
+## Ask first rules in Grok Bot
 
-- Send or publish any external message.
-- Launch, change or grow a campaign, or load a list.
-- Create, publish or change a GHL workflow, form, pipeline, custom field or calendar.
-- Accept or reject a partner.
-- Change program facts, terms or approved claims.
-- Export contact data.
-- Create or turn on a routine.
-- Spend money or start a subscription.
+Only the owner can add these. Open **Settings → General → Auto-review** and add each line as an **Ask first** rule:
+
+- Ask first before sending any email, text or message to anyone outside this Grok account.
+- Ask first before launching a Smartlead or Instantly campaign, changing its copy or volume, or adding leads to it.
+- Ask first before creating, publishing or changing a GoHighLevel workflow, form, pipeline, custom field or calendar.
+- Ask first before accepting or rejecting a partner application in GoHighLevel.
+- Ask first before exporting contacts from GoHighLevel.
+- Ask first before editing /workspace/lending-team/context/program-facts.md.
+- Ask first before resuming or turning on a routine.
+- Ask first before buying anything or starting a subscription.
+
+An approval for work that a routine or another bot started expires after about 10 minutes, and then the action doesn't run. So routines never wait on an approval: they write drafts and stop. When the owner approves items in the morning brief, the bot doing the send may show one more confirm prompt in its own chat.
 
 ## Never, even with a yes
 
