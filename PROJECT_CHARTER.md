@@ -1,131 +1,167 @@
-# Project Charter: Lending Business Team
+# Project Charter: ClearBlu Lending Team
+
+**Project:** ClearBlu Lending Team (see [PROJECT.md](PROJECT.md)) · **Owner:** Larry L. Gilmore, Managing Director, ClearBlu Capital Group Inc. · **Time zone:** Pacific · **Runs on:** Grok Bot, GoHighLevel and the [GHL Super Hub](https://github.com/jbellsolutions/ghl-super-hub)
 
 ## 1. Mission
 
-Grow a business-purpose real-estate lending company through three channels: referral partners, past clients and new borrower leads. One owner runs it from a phone. The agents do the repeatable work, and the owner keeps every decision that carries money, liability or a relationship.
+ClearBlu Capital Group is "a direct real estate lender to real estate investors and developers providing short-term fix and flip, new construction and DSCR loans for 1-4 Unit and Multifamily Residential properties" (Larry, 2026-10-13).
 
-Success means more funded loans each month. The owner gets there by approving drafts, taking calls and closing loans, not by operating software.
+The team grows that business through three channels: referral partners, past clients and new borrower leads. Larry runs it from his phone. The agents do the repeatable work. Larry keeps every decision that carries money, liability or a relationship.
 
-## 2. Who this is for
+Success is more funded investor loans, with each one traced back to the channel that brought it. Larry gets there by approving drafts, taking calls and closing loans, not by operating software.
 
-- **The owner.** They run the business, take partner and borrower calls, make every credit decision and talk to the team from their phone.
-- **The owner's assistant** (optional). They take the call tasks and reply tasks that the agents create.
-- **Partners.** Realtors, mortgage brokers, builders, developers, title companies and other referral sources.
-- **Borrowers.** Real-estate investors, who always borrow through a business entity: fix and flip, new construction, DSCR, multifamily, private and hard money.
+## 2. Who it serves
+
+- **Larry.** He takes the partner and borrower calls, makes every credit decision and talks to the team through the Chief of Staff.
+- **Larry's assistant**, if he has one. They take the call tasks and reply tasks the agents create.
+- **Referral partners, in this order** (from the 2026-10-09 call with Larry):
+  1. Mortgage lenders and mortgage brokers, including loan officers with investor deals they can't place.
+  2. Commercial and investor-loan brokers.
+  3. Real estate agents, builders, developers, title companies and other referral sources.
+- **Borrowers.** Real estate investors and developers borrowing for non-owner-occupied 1–4 unit and multifamily residential property: fix and flip, renovation, new construction and DSCR.
+
+Not in scope: owner-occupied home loans and ClearBlu Home Loans. The agents never market them, and they send any such question to Larry (Larry, 2026-10-13).
 
 ## 3. Operating principles
 
-1. **GoHighLevel does the instant work. Agents do the judgement.** Instant replies, speed-to-lead texts, form routing and drip steps stay as GHL workflows, because they run in seconds and cost nothing per run. Agents read what happened, draft the human-sounding messages, spot what's broken and ask the owner.
-2. **One voice to the owner.** Only the Chief of Staff talks to the owner unasked. Every other agent writes its daily notes to a shared folder, and the Chief of Staff turns them into one morning message.
-3. **Files, not wake-ups.** Agents hand work to each other through files in `/workspace/lending-team/`. They wake another agent only to deliver an approved action. One agent asking another a one-line question is the biggest single waste of usage, so it isn't done.
-4. **Nothing external without a yes.** Every send, every new live workflow and every change to a partner's status waits for the owner's approval. See [policies/APPROVALS.md](policies/APPROVALS.md).
-5. **Build additively.** Never delete anything in GHL. New things start in Draft. Old things get renamed with a `ZZ-ARCHIVE |` prefix and stay put.
-6. **Seats, not logins.** Agents use their own GHL user and a scoped Private Integration token. They never use the owner's login. Secrets are entered only by the owner: in a secure secret card, in Settings → Vault, or at a hidden prompt with Take over.
-7. **Lean on usage.** Eight scheduled runs a weekday at full build, four in phase 1. Every routine stays silent when nothing changed. Replies are read in each morning job and once at midday; a GHL webhook can make partner replies instant later.
-8. **Stop at loan processing.** The agents bring a lead to a complete handoff brief. From the quick app onward, a person handles it.
+1. **GoHighLevel does the instant work. Agents do the judgement.** Speed to Lead, instant replies, form routing and drip steps stay as GHL workflows, because they run in seconds and cost nothing per run. Agents read what happened, draft the messages that need a person's touch, spot what's broken and ask Larry.
+2. **One voice to Larry.** Only the Chief of Staff messages Larry unasked. Every other agent writes a daily note, and the Chief of Staff turns the notes into one morning brief.
+3. **Never silent.** Larry's last agents went quiet without warning. The morning brief arrives every weekday, even when nothing changed. It names any routine that didn't write its note, including the midday reply checks, which each leave a "ran" line even when there were no replies. If the brief itself doesn't arrive by 7:30 am Pacific, Larry sends the Chief of Staff "status".
+4. **Files, not wake-ups.** Agents hand work to each other through files in `/workspace/lending-team/`. One agent sends another a handoff message only to deliver an approved action or a hot item. Waking another agent to ask a one-line question is the biggest single waste of usage, so it isn't done.
+5. **Nothing external without Larry's yes.** Every send, every new or changed live workflow and every change to a partner's status waits for his approval. See [policies/APPROVALS.md](policies/APPROVALS.md). The one exception: an unsubscribe is honored at once.
+6. **The quick app comes first.** Most of Larry's leads finish the 30-second quick app with little back-and-forth, so every borrower message offers it. A call is the fallback, never the demand.
+7. **Build additively.** Never delete anything in GHL. New things start in Draft. Old things get renamed with a `ZZ-ARCHIVE |` prefix and stay put.
+8. **Sub-account only, own seat.** The agents use their own GHL staff user and a Private Integration token created inside the ClearBlu sub-account. Larry resells GHL at the agency level, so an agency-level key would expose his other clients' accounts. It is never used. Secrets go in only through a secure secret card, Settings → Vault, or a hidden prompt Larry fills in with Take over.
+9. **Lean on usage.** Each routine runs once a day, plus one midday reply check per lane. When nothing changed, a routine writes "no change" and stops.
+10. **Stop at the quick app.** The agents bring a lead to a complete handoff brief. Pricing, the term sheet, processing and closing belong to Larry's team.
 
 ## 4. The team
 
-| Agent | Role in one line | Phase |
-|---|---|---|
-| [Chief of Staff](agents/01-chief-of-staff.md) | Pinned bot. The owner's single point of contact: morning brief, approvals, routing, weekly scorecard | 1 |
-| [GHL Operator](agents/02-ghl-operator.md) | GoHighLevel super user. Owns the account's structure, runs health checks, builds what the owner asks for in plain English | 1 |
-| [Affiliate Manager](agents/03-affiliate-manager.md) | Runs the partner lifecycle: onboarding, check-ins, reactivation, reply triage, referral tracking | 1 |
-| [Partner Recruiter](agents/04-partner-recruiter.md) | Cold outbound to realtors, brokers and builders through Smartlead or Instantly; hands interested people to the Affiliate Manager | 2 |
-| [Borrower Desk](agents/05-borrower-desk.md) | Speed-to-lead follow-through, database reactivation and past-client care; hands a complete brief to a person | 2 |
-| [Intent Scout](agents/90-reserved-intent-scout.md) | Reserved. Social intent signals for borrower and partner leads | Later |
-
-The owner pins the Chief of Staff and talks to it first. It routes each request to the right agent.
-
-```
-                   Owner (phone)
-                        │
-                 Chief of Staff  ◄── reads /workspace/lending-team/daily/*
-      ┌───────────┬─────┴──────┬───────────────┐
- GHL Operator  Affiliate    Partner        Borrower
- (structure)   Manager      Recruiter      Desk
-      └───────────┴── GoHighLevel (records, by lane) ──┘
-```
-
-## 5. Who owns what in GoHighLevel
-
-Structure has one owner. Records have lane owners.
-
-| Owner | Can create or change | Lane prefix and tags |
-|---|---|---|
-| GHL Operator | Workflows, forms, pipelines, custom fields, custom values, smart lists, calendars, sites | Any. It is the only agent that changes **structure**. |
-| Affiliate Manager | Partner contacts, partner notes, tasks and opportunities in the partner pipelines | `AFF |`, `aff:` and `src:` tags |
-| Partner Recruiter | New partner prospects from outbound, and "interested" handoffs | `OUT |`, `out:` tags |
-| Borrower Desk | Lead and past-client notes, tasks and opportunity stages up to the human handoff | `STL |`, `REACT |`, `bor:` tags |
-| Chief of Staff | Nothing in GHL. It reads only. | — |
-
-Any agent that needs a structural change writes a request to `/workspace/lending-team/requests/ghl/`. The GHL Operator picks those up on its next run.
-
-## 6. What it does for you, how you use it, how it's measured
-
-| Area | What it does | How you use it | How it's measured |
+| Bot | Label | Job in one line | Joins when |
 |---|---|---|---|
-| Morning brief | One message by 7:30 am: yesterday's numbers, what needs your yes, what's broken, today's calls | Read it, reply "approve 1, 3" or "skip 2" | Delivered every workday; items waiting more than one day |
-| Partner program | Welcomes new partners, checks in on a schedule, wakes up quiet ones, triages replies, tracks every referral to Funded | Approve the day's drafts, take the calls it books | Active partners (a referral in the last 90 days), referrals per month, time to first referral, quiet partners reactivated |
-| Partner recruiting | Runs cold email to realtors, brokers and builders, works the replies, books intro calls | Approve copy once per campaign, take intro calls | Deliverability, positive reply rate, intro calls booked, partners signed per week |
-| Borrower follow-up | Chases leads who didn't finish the quick app, works reactivation replies, keeps in touch with past clients | Approve drafts, take the calls, own everything from the quick app on | Quick-app completion rate, calls booked, reactivation replies, repeat and referred borrowers |
-| GoHighLevel | Keeps workflows, forms and lists working; fixes errors; builds what you describe | Ask in plain English: "make a smart list of partners who sent a deal this year" | Open workflow errors, first-touch time on new leads, one live form per purpose |
-| Weekly scorecard | One page every Friday afternoon: the funnel from partner to funded loan, wins, stalls, next week's focus | Read it, pick one focus for next week | Delivered every Friday |
+| [Chief of Staff](agents/01-chief-of-staff.md) | ClearBlu · Larry's point of contact | Pinned. Morning brief, approvals, routing, Friday scorecard, results baseline | Setup |
+| [GHL Operator](agents/02-ghl-operator.md) | ClearBlu · GoHighLevel | The only agent that changes GHL structure. Health check, account map, builds | Setup |
+| [Affiliate Manager](agents/03-affiliate-manager.md) | ClearBlu · Referral partners | Runs the partner program: onboarding, check-ins, reactivation, replies, referral tracking | Setup |
+| [Borrower Desk](agents/05-borrower-desk.md) | ClearBlu · Borrowers | Works what Speed to Lead leaves behind, reactivation replies and past-client care | Gate B |
+| [Partner Recruiter](agents/04-partner-recruiter.md) | ClearBlu · Broker outreach | Runs broker cold email from ClearBlu's own sending account | Gate C |
+| [Intent Scout](agents/90-reserved-intent-scout.md) | — | Reserved. Not built | A separate decision |
 
-## 7. Phases
+```
+                     Larry (phone)
+                          │
+                   Chief of Staff  ◄── reads /workspace/lending-team/daily/<date>/
+      ┌──────────────┬────┴─────────┬──────────────────┐
+ GHL Operator   Affiliate Manager   Borrower Desk   Partner Recruiter
+ (structure)    (partner records)   (borrower       (cold email account,
+                                     records)        new partner prospects)
+      └──────────────┴── ClearBlu sub-account in GoHighLevel ──┘
+```
 
-**Phase 1: get control (week 1).** Chief of Staff, GHL Operator, Affiliate Manager.
-- The GHL Operator audits the account and writes a plain-English map of what's live, what's draft and what's broken.
-- It settles which form is the live one for each purpose and wires the website's partner page to it.
-- The Affiliate Manager takes over the existing partner list and pipeline and sends its first approved check-ins.
+## 5. Who owns what
+
+Each thing has exactly one writer. Everyone else reads it, or sends a request to its owner.
+
+| Thing | Sole writer | Everyone else |
+|---|---|---|
+| GHL structure: workflows, forms, pipelines, stages, custom fields and values, smart lists, calendars, sites | GHL Operator | Request it in `requests/ghl/` |
+| Partner contacts, partner notes and tasks, partner-pipeline opportunities, `aff:` and `src:` tags | Affiliate Manager | Read only |
+| Borrower leads and past clients: notes, tasks, `bor:` tags, opportunities in "ClearBlu Home & Commercial Lending Leads" up to the quick-app stage | Borrower Desk | Read only |
+| New partner prospects from cold email, at the first stage of the partner pipeline, with `src:outbound` | Partner Recruiter | Affiliate Manager takes over from there |
+| Cold email campaigns, lists and sending settings | Partner Recruiter, once ClearBlu has its own account | Nobody else touches it |
+| `daily/<date>/<agent>.md` | That agent | Chief of Staff reads |
+| `daily/<date>/brief.md`, `approved/`, `context/standing-approvals.md`, `context/baseline.md`, `context/team-memory.md` | Chief of Staff | Read only |
+| `context/account-map.md` | GHL Operator | Read only |
+| `context/program-facts.md` | Chief of Staff, only with Larry's yes | Read only |
+| Opportunity stages from the quick-app stage onward | Larry's team | Agents watch and report |
+
+Until the Borrower Desk joins, the Affiliate Manager hands a partner's referred borrower straight to Larry as a hot item.
+
+## 6. What it does, how Larry uses it, how it's measured
+
+| Area | What it does | How Larry uses it | How it's measured |
+|---|---|---|---|
+| Morning brief | Every weekday by 7:30 am Pacific: what needs his yes, numbers since the last brief, what's broken, today's calls, and any routine that didn't run |  Read it. Reply "approve 1, 3", "skip 2" or "edit 4: …" | Arrives every weekday. Items waiting more than one business day |
+| Partner program | Welcomes new partners, checks in on a cadence, wakes up quiet ones, triages replies, tracks every referral to funded | Approve the day's drafts. Take the intro calls and cover terms there | Active partners, referrals a month by partner type and source, days to first referral, quiet partners brought back |
+| Borrower follow-through | Follows up leads who didn't finish the quick app, works reactivation replies, keeps past clients close | Approve drafts. Take the calls. Own everything from the quick app on | Quick app completion rate, calls booked, reactivation replies, repeat and referred borrowers |
+| Broker outreach | Runs broker cold email from ClearBlu's own sending, works the replies, books intro calls | Approve the copy once per campaign. Take the intro calls | Deliverability, positive reply rate, intro calls booked, brokers signed |
+| GoHighLevel | Keeps workflows, forms and lists working, fixes errors, builds what Larry describes | Ask in plain English: "make a smart list of brokers who sent a deal this year" | Open workflow errors, new leads with no first touch, one live form per purpose |
+| Friday scorecard | One screen: each channel's funnel from first touch to funded, against the baseline, plus wins, stalls and one focus | Read it. Pick next week's focus | Arrives every Friday |
+
+## 7. Build order: gates, not dates
+
+The team grows one gate at a time. Each gate opens when its conditions are true, not on a date.
+
+**Setup (Gate A): get control.** Chief of Staff, GHL Operator, Affiliate Manager.
+- The GHL Operator maps the ClearBlu sub-account read-only: what's live, what's draft, what's broken, and the exact names of every pipeline and stage.
+- The Chief of Staff records the results baseline (section 10).
+- The Affiliate Manager takes over the partner pipelines and the replies to the Oct 14 partner invite.
 - The morning brief starts.
 
-**Phase 2: grow (week 2 onward).** Partner Recruiter, Borrower Desk.
-- Outbound picks up where the existing broker campaign stopped, through Smartlead or Instantly.
-- Reactivation is switched back on at a pace the owner sets.
-- The Borrower Desk starts past-client care.
+**Gate B: the Borrower Desk.** Opens when both are true:
+- Every Gate A routine has run five weekdays in a row with no failed run and no unapproved send.
+- Larry says "start the borrower desk".
 
-**Phase 3: optional.** Intent Scout, a partner newsletter, authority content and a fuller KPI dashboard. Each is a separate decision. See [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md).
+The Borrower Desk works only on what Speed to Lead and the reactivation workflow leave behind. It never repeats a first touch that a workflow already sent.
 
-Add an agent only once the one before it runs a full week without surprises and the weekly usage meter has room.
+**Gate C: the Partner Recruiter.** Opens when all three are true:
+- ClearBlu has its own cold email account (Smartlead or Instantly) with its own sending domains and warmed inboxes.
+- The build team has handed over the broker campaign, or Larry has approved a new one.
+- Larry says "start broker outreach".
 
-## 8. Daily rhythm (weekdays, in the owner's time zone)
+Until then, the broker campaign runs on the build team's warmed inboxes, outside this Grok account. Interested brokers arrive in GHL as partner applicants, and the Affiliate Manager works them. See question 9 in [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md).
+
+**Later, each a separate decision:** Intent Scout, a partner newsletter, authority content, a fuller dashboard.
+
+Add an agent only when the one before it has run five clean weekdays and the weekly usage meter has room.
+
+## 8. Daily rhythm (weekdays, Pacific Time)
 
 | Time | Who | What |
 |---|---|---|
-| 6:07 | GHL Operator | Health check: errors, stuck contacts, new leads without a first touch |
-| 6:23 | Affiliate Manager | Partner sweep: retag proposals, today's touch queue (40 max), personal drafts, overnight replies |
-| 6:41 | Partner Recruiter (phase 2) | Outbound stats, overnight replies, list health |
-| 6:53 | Borrower Desk (phase 2) | Unfinished quick apps, reactivation replies, past-client touches due |
-| 7:12 | Chief of Staff | Reads all four notes and sends the owner one morning brief |
+| 6:07 am | GHL Operator | Health check: workflow errors, stuck contacts, new leads with no first touch |
+| 6:23 am | Affiliate Manager | Partner sweep: stage proposals, today's touch queue (40 max), drafts, overnight replies |
+| 6:41 am | Partner Recruiter (Gate C) | Campaign stats, overnight replies, sending health |
+| 6:53 am | Borrower Desk (Gate B) | Unfinished quick apps, reactivation replies, past-client touches due |
+| 7:12 am | Chief of Staff | Reads every note and sends Larry the morning brief, every weekday |
 | 12:37 pm | Affiliate Manager | Partner reply check |
-| 12:41 pm | Partner Recruiter (phase 2) | Outbound reply check |
-| 12:53 pm | Borrower Desk (phase 2) | Borrower reply check |
+| 12:41 pm | Partner Recruiter (Gate C) | Outbound reply check |
+| 12:53 pm | Borrower Desk (Gate B) | Borrower reply check |
 | Fri 3:17 pm | Chief of Staff | Weekly scorecard |
-| 1st of month 8:37 | Affiliate Manager | Partner portfolio review |
+| 1st of month, 8:37 am | Affiliate Manager | Partner portfolio review |
 
 ## 9. Usage budget
 
-GrokBot usage resets weekly. On Premium, plan for phase 1 alone at first; Super and Ultra have larger weekly allowances. Watch **Weekly usage** in the account menu.
+Grok Bot usage resets weekly. Watch **Weekly usage** in the account menu. Premium can run Gate A alone. Super and Ultra have room for the full team.
 
-- Four scheduled runs a weekday in phase 1, eight at full build: one morning job per agent, the morning brief, and one midday reply check per lane. Each one reads, writes a short note and stops.
-- The Chief of Staff's routines are the only ones that message the owner.
-- No routine runs more than once a day, apart from each lane's midday reply check.
-- If usage runs short before the weekly reset, pause in this order: Borrower Desk routines, Partner Recruiter routines, monthly review. The morning brief and the Affiliate Manager's daily loop stay on longest.
-- Every routine first checks its switch in `context/routines-on.md`, then: "Lean run. If nothing changed, write 'no change' and stop."
+- Gate A: four scheduled runs a weekday. Full team: eight.
+- Each run reads, writes one short note and stops. Only the Chief of Staff's routines message Larry.
+- If usage runs short before the reset, pause in this order: Borrower Desk routines, Partner Recruiter routines, the monthly review. The morning brief and the Affiliate Manager's daily loop stay on longest. The Chief of Staff names any paused routine in the brief, so a pause never looks like silence.
+- Every routine first checks its switch in `context/routines-on.md`.
 
-## 10. Out of scope
+## 10. Measuring results
+
+Larry judges the team on results, so every number traces back to its source.
+
+- **Baseline.** Before any routine is switched on, the Chief of Staff writes `context/baseline.md`. The GHL Operator reads it out of GHL, read-only: open opportunities by stage in each pipeline, partners by stage, referrals received in the last 90 days, and new leads and quick apps in the last 30 days. Each number is dated. A number GHL can't give is written as "unknown", never estimated.
+- **Attribution.** Every partner carries a `src:` tag (outbound, website, referral, event, owner). Every referred borrower carries the referring partner on the record. The scorecard counts each channel separately: partners, past clients, Meta ad leads, broker outreach.
+- **Funnel stages are counted separately:** contacted → replied → interested → signed → first referral → quick app → term sheet → funded. Agents count the stages they own. Larry's team's stages are read from GHL, never inferred.
+- A stage with no data reads "no data", not zero. A ratio with no denominator is left blank.
+
+## 11. Out of scope
 
 - Underwriting, pricing, term sheets, loan processing and closing.
-- Collecting financial documents, bank statements or Social Security numbers. Those go through the owner's secure portal, never chat or email with an agent.
-- Stating, negotiating or paying referral fees. Agents track a referral to "Fee pending" and stop there.
-- Trading, moving money, or changing payment or banking settings.
+- Owner-occupied home loans and anything for ClearBlu Home Loans.
+- Collecting financial documents, bank statements, credit details or Social Security numbers. Those go through Larry's own secure application, never chat or email with an agent.
+- Stating, negotiating or paying referral fees. Agents track a referral to "fee pending" and stop.
+- Moving money, or changing billing, payment, phone number or A2P settings.
 
-## 11. Definition of done for setup
+## 12. Definition of done for setup
 
-- Every agent exists with its profile, skills and memory seeded.
-- GHL is connected through the GHL Operator's own seat and token, and `ghl hub doctor` passes.
-- The owner added the Ask first rules in Auto-review.
-- The account map is written and the owner has read it.
-- Every routine exists, ran once as a test that wrote nothing external, and is switched on only after the owner said yes.
+- Every Gate A bot exists, with its name, label and description set from its charter, its team memory saved, and its skills enabled.
+- The ClearBlu Lending Team project (or sidebar section) holds every team bot.
+- GHL is connected through the agents' own seat and a sub-account token, `ghl hub doctor` passes, and `ghl hub whoami` shows the ClearBlu location.
+- Larry has added the Ask first rules in Auto-review.
+- The account map is written, every pipeline and stage name in it is real, and Larry has read the summary.
+- The baseline is written.
+- Every Gate A routine exists, passed one test run that wrote nothing outside the team, and was switched on only after Larry said yes.
 - The first morning brief has arrived.

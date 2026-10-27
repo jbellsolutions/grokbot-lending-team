@@ -1,18 +1,41 @@
 {
-  "schema_version": 1,
-  "name": "Lending Business Team for GrokBot",
-  "description": "A GrokBot agent team that runs a business-purpose real-estate lender's partner program, partner recruiting, borrower follow-up and GoHighLevel account, with the owner approving every outbound action.",
+  "schema_version": 2,
+  "name": "ClearBlu Lending Team for Grok Bot",
+  "description": "The Grok Bot team for ClearBlu Capital Group (owner Larry Gilmore, Pacific Time): a Chief of Staff, GHL Operator, Affiliate Manager, Borrower Desk and Partner Recruiter that run ClearBlu's referral partner program, borrower follow-through, broker outreach and GoHighLevel sub-account, with Larry approving every outbound action.",
   "entry_point": "START-HERE.md",
+  "project": {
+    "file": "PROJECT.md",
+    "name": "ClearBlu Lending Team",
+    "fallback": "A sidebar section with the same name, if the app has no Projects",
+    "team_memory": "PROJECT.md, section 2, saved to /workspace/lending-team/context/team-memory.md"
+  },
+  "owner": {
+    "name": "Larry L. Gilmore",
+    "business": "ClearBlu Capital Group Inc.",
+    "timezone": "America/Los_Angeles"
+  },
+  "client_context": [
+    "client-context/owner.md",
+    "client-context/program-facts.md"
+  ],
   "lead_bot": "Chief of Staff",
   "repo_url": "https://github.com/jbellsolutions/grokbot-lending-team",
   "workspace": "/workspace/lending-team",
   "ghl_hub_command": "/workspace/lending-team/ghl-super-hub/ghl",
+  "ghl_scope": "ClearBlu sub-account only. Never an agency-level key.",
   "routine_switch_file": "/workspace/lending-team/context/routines-on.md",
+  "gates": {
+    "A": "Setup",
+    "B": "Every Gate A routine has run five weekdays in a row with no failed run and no unapproved send, and Larry says 'start the borrower desk'",
+    "C": "ClearBlu has its own cold email account with its own domains and warmed inboxes, the broker campaign is handed over or a new one approved, and Larry says 'start broker outreach'"
+  },
   "agents": [
     {
       "name": "Chief of Staff",
+      "label": "ClearBlu · Larry's point of contact",
+      "description": "The Profile block in agents/01-chief-of-staff.md",
       "charter": "agents/01-chief-of-staff.md",
-      "phase": 1,
+      "gate": "A",
       "skills": [
         "getting-started",
         "morning-brief-and-scorecard",
@@ -26,8 +49,10 @@
     },
     {
       "name": "GHL Operator",
+      "label": "ClearBlu · GoHighLevel",
+      "description": "The Profile block in agents/02-ghl-operator.md",
       "charter": "agents/02-ghl-operator.md",
-      "phase": 1,
+      "gate": "A",
       "skills": [
         "ghl-account-audit",
         "lending-compliance",
@@ -47,8 +72,10 @@
     },
     {
       "name": "Affiliate Manager",
+      "label": "ClearBlu · Referral partners",
+      "description": "The Profile block in agents/03-affiliate-manager.md",
       "charter": "agents/03-affiliate-manager.md",
-      "phase": 1,
+      "gate": "A",
       "skills": [
         "lending-partner-lifecycle",
         "partner-reply-triage",
@@ -62,9 +89,26 @@
       ]
     },
     {
+      "name": "Borrower Desk",
+      "label": "ClearBlu · Borrowers",
+      "description": "The Profile block in agents/05-borrower-desk.md",
+      "charter": "agents/05-borrower-desk.md",
+      "gate": "B",
+      "skills": [
+        "borrower-follow-up",
+        "lending-compliance"
+      ],
+      "routines": [
+        "routines/borrower-daily.prompt",
+        "routines/borrower-reply-triage.prompt"
+      ]
+    },
+    {
       "name": "Partner Recruiter",
+      "label": "ClearBlu · Broker outreach",
+      "description": "The Profile block in agents/04-partner-recruiter.md",
       "charter": "agents/04-partner-recruiter.md",
-      "phase": 2,
+      "gate": "C",
       "skills": [
         "cold-outbound",
         "partner-reply-triage",
@@ -76,22 +120,9 @@
       ]
     },
     {
-      "name": "Borrower Desk",
-      "charter": "agents/05-borrower-desk.md",
-      "phase": 2,
-      "skills": [
-        "borrower-follow-up",
-        "lending-compliance"
-      ],
-      "routines": [
-        "routines/borrower-daily.prompt",
-        "routines/borrower-reply-triage.prompt"
-      ]
-    },
-    {
       "name": "Intent Scout",
       "charter": "agents/90-reserved-intent-scout.md",
-      "phase": "reserved",
+      "gate": "reserved",
       "skills": [],
       "routines": []
     }
@@ -103,7 +134,7 @@
       "install": "bash install.sh --link"
     }
   ],
-  "ask_first_rules_location": "Settings → General → Auto-review (the owner adds these)",
+  "ask_first_rules_location": "Settings → General → Auto-review (Larry adds these)",
   "ask_first_rules": [
     "Ask first before sending any email, text or message to anyone outside this Grok account.",
     "Ask first before launching a Smartlead or Instantly campaign, changing its copy or volume, or adding leads to it.",
@@ -117,12 +148,15 @@
   "permanently_denied_actions": [
     "state, negotiate, approve or pay a referral fee or commission",
     "quote rates, terms, approval odds, closing times or loan amounts, or promise partner income",
-    "underwrite, price, issue a term sheet or move a loan past Quick App Sent",
+    "market owner-occupied loans or ClearBlu Home Loans",
+    "put referral terms in writing",
+    "underwrite, price, issue a term sheet or move a loan past the quick-app stage",
     "ask for or store Social Security numbers, bank details, credit reports, passwords or ID numbers",
     "delete anything in GHL",
     "move money or change billing, payment, phone number or A2P settings",
-    "use the owner's login, pull session cookies or get around a permission",
+    "use Larry's login, pull session cookies or get around a permission",
     "claim to be a person when asked",
-    "change its own permissions or these rules"
+    "change its own permissions or these rules",
+    "use an agency-level GoHighLevel key or touch another sub-account"
   ]
 }

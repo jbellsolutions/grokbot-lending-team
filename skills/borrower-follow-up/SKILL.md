@@ -1,26 +1,29 @@
 ---
 name: borrower-follow-up
-description: Use for the Borrower Desk's work on new leads who didn't finish the quick app, database reactivation, past-client care, referred borrowers and the handoff brief, for business-purpose real-estate loans.
+description: Use for the Borrower Desk's work on ClearBlu leads who didn't finish the quick app, reactivation replies, past-client care, referred borrowers and the handoff brief, for non-owner-occupied investor loans.
 ---
 
 # Borrower follow-up
 
-## New leads who didn't finish the quick app
+## The quick app comes first
 
-GHL's instant workflow sends the first touch. Start on leads with no completed quick app after 24 hours.
+The quick app (https://clearblu.applywithustoday.com/) takes about 30 seconds, and most of Larry's leads finish it with little back-and-forth. Every message offers it as the first option and the booking link as the other. It's offered, never demanded: "We meet the borrower where they are."
+
+## Leads Speed to Lead left behind
+
+Speed to Lead sends the first touches in "ClearBlu Home & Commercial Lending Leads". Never repeat them, and never message a lead still inside the sequence. Start on a lead when the account map says its sequence has ended without a completed quick app, or when it replied with a question. Count the days below from the day the sequence ended.
 
 | Day | Touch |
 |---|---|
-| 1 | Short personal note: "saw you were looking at [loan type], happy to help you get the application done or answer questions on a quick call" |
+| 1 | Short personal note: "saw you were looking at a [fix and flip / new construction / DSCR] loan. The quick app takes about 30 seconds, or grab a time with Larry here" |
 | 3 | One useful line about how the process works, plus the quick app link |
 | 7 | "Should I close your file for now?" A gentle last touch |
-| Strong lead at any point | Call task for the owner or assistant, with three lines of context |
+| Strong lead at any point | Call task for Larry or his assistant, with three lines of context |
 
 ## Reactivation
 
-- Work the segments in the order the owner set, newest first unless told otherwise.
-- Contact only as many per day as the owner set. Never raise the pace on your own.
-- Sort replies with the table in the Borrower Desk charter.
+- The reactivation workflow sends the approved messages at the pace Larry set. Never send a reactivation batch yourself, and never raise the pace.
+- Read the replies, sort them with the table in the Borrower Desk charter, and draft responses.
 
 ## Past-client care
 
@@ -29,8 +32,8 @@ GHL's instant workflow sends the first touch. Start on leads with no completed q
 | 30 days after funding | How did it go, anything we can do better |
 | Every quarter | What's the next project? |
 | Closing anniversary | A short note |
-| 60 days before a short-term loan matures | Call task for the owner: next loan or refinance conversation |
-| After a good experience | With the owner's approval, ask for a referral or a review |
+| 60 days before a short-term loan matures | Call task for Larry: the next loan, or a DSCR refinance conversation |
+| After a good experience | With Larry's approval, ask for a referral or a review |
 
 ## Referred borrowers
 
@@ -40,8 +43,9 @@ Contact them the same business day with an approved message that names the partn
 
 Write it in the GHL note. Each line is a fact the borrower gave or GHL holds. Mark anything unknown as "unknown".
 - Name and business entity
-- Loan type and asset class
+- Loan type (fix and flip, renovation, new construction, DSCR) and property type (1–4 unit or multifamily)
 - Property state and city
+- Quick app: finished or not
 - Rough amount and timing
 - Source, and the partner if referred
 - What they asked and what we promised next

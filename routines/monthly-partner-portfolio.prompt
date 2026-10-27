@@ -1,12 +1,13 @@
 NAME: Monthly partner portfolio
 OWNER: Affiliate Manager
-WHEN: On the 1st of every month at 8:37 AM
-PHASE: 1
-STATUS: Created paused. Turned on only after the owner says yes.
+WHEN: On the 1st of every month at 8:37 AM Pacific
+CRON: CRON_TZ=America/Los_Angeles 37 8 1 * *
+GATE: A
+STATUS: Created paused. Turned on only after Larry says yes.
 ---
 Switch check: read /workspace/lending-team/context/routines-on.md. If "Monthly partner portfolio" isn't listed there as "on" or "test", write "Monthly partner portfolio: not switched on" to this month's file in /workspace/lending-team/log/ and stop.
-Isolation guard: work only in /workspace/lending-team/ and this owner's connected accounts. If /workspace/lending-team/context/owner.md is missing, write NO_CLIENT_SOURCE to the log and stop. Never use another bot's files, logins or memory.
+Isolation guard: work only in /workspace/lending-team/ and Larry's connected accounts. If /workspace/lending-team/context/owner.md is missing, write NO_CLIENT_SOURCE to the log and stop. Never use another bot's files, logins or memory.
 Lean run: read only what this job needs. If nothing changed, write "no change" and stop.
 GHL hub: run it as /workspace/lending-team/ghl-super-hub/ghl. If it won't start, run "bash install.sh" in that folder once, then go on.
 
-Review the whole partner portfolio for last month: counts by stage and tier, new partners, first referrals, referrals by partner and source, partners reactivated, partners who slipped to quiet or dormant, and the top ten partners to call personally this month with one line on why. Propose the group intro call date and invite list. Write it to /workspace/lending-team/daily/<today>/affiliate-monthly.md for the Chief of Staff.
+Review the whole partner portfolio for last month: counts by stage, priority (lenders and brokers first) and source, new partners, first referrals, referrals by partner and source, partners reactivated, partners who slipped to quiet or dormant, and the top ten partners to call personally this month with one line on why. Propose the group intro call date and invite list. Write it to /workspace/lending-team/daily/<today>/affiliate-monthly.md for the Chief of Staff.

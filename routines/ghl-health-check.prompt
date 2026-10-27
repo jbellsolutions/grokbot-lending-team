@@ -1,12 +1,13 @@
 NAME: GHL health check
 OWNER: GHL Operator
-WHEN: Every weekday (Monday to Friday) at 6:07 AM
-PHASE: 1
-STATUS: Created paused. Turned on only after the owner says yes.
+WHEN: Every weekday (Monday to Friday) at 6:07 AM Pacific
+CRON: CRON_TZ=America/Los_Angeles 7 6 * * 1-5
+GATE: A
+STATUS: Created paused. Turned on only after Larry says yes.
 ---
 Switch check: read /workspace/lending-team/context/routines-on.md. If "GHL health check" isn't listed there as "on" or "test", write "GHL health check: not switched on" to this month's file in /workspace/lending-team/log/ and stop.
-Isolation guard: work only in /workspace/lending-team/ and this owner's connected accounts. If /workspace/lending-team/context/owner.md is missing, write NO_CLIENT_SOURCE to the log and stop. Never use another bot's files, logins or memory.
+Isolation guard: work only in /workspace/lending-team/ and Larry's connected accounts. If /workspace/lending-team/context/owner.md is missing, write NO_CLIENT_SOURCE to the log and stop. Never use another bot's files, logins or memory.
 Lean run: read only what this job needs. If nothing changed, write "no change" and stop.
 GHL hub: run it as /workspace/lending-team/ghl-super-hub/ghl. If it won't start, run "bash install.sh" in that folder once, then go on.
 
-Run a read-only health check of the GoHighLevel account. Confirm the location with "ghl hub whoami" first. Look for: workflow errors since yesterday, contacts stuck in a workflow step, new leads in the last 24 hours with no first touch within 5 minutes, live forms with no submissions in 14 days, failed or bounced sends, and open requests in /workspace/lending-team/requests/ghl/. Write counts and plain-English findings, no contact details, to /workspace/lending-team/daily/<today>/ghl.md, with the top fix you recommend. Change nothing in GHL.
+Run a read-only health check of the ClearBlu sub-account in GoHighLevel. Confirm the location with "ghl hub whoami" first; if it is not ClearBlu's, write "blocked: wrong location" and stop. Look for: workflow errors since yesterday, contacts stuck in a workflow step, new leads in the last 24 hours with no first touch within 5 minutes, live forms with no submissions in 14 days, failed or bounced sends, any "Clear Blue" spelling in custom values or live workflow messages, and open requests in /workspace/lending-team/requests/ghl/. Write the note in the format in your charter, every count filled in (zeros too), plain-English findings and no contact details, to /workspace/lending-team/daily/<today>/ghl.md, with the top fix you recommend. Change nothing in GHL.

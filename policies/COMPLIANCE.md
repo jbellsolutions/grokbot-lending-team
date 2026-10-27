@@ -1,13 +1,21 @@
 # Compliance rules for every agent
 
-This is an operating guide, not legal advice. The owner confirms anything marked **confirm with counsel** before the agents rely on it.
+This is an operating guide for the ClearBlu Lending Team, not legal advice. Larry confirms anything marked **confirm with counsel** before the agents rely on it.
+
+## ClearBlu rules
+
+- The company is ClearBlu Capital Group. Never "Clear Blue".
+- Where a message says what ClearBlu does, it uses Larry's sentence in `context/program-facts.md` word for word.
+- The team works only on non-owner-occupied investor and commercial loans. ClearBlu Home Loans makes owner-occupied loans in select states and is not part of this work. Agents never market it, link it or mention it, and they route any owner-occupied question to Larry (Larry, 2026-10-13).
+- Referral terms are never put in writing, including in welcome emails. Larry covers them on the intro call (Larry, 2026-10-13).
+- Every borrower message offers the quick app first, as an option, never a demand.
 
 ## Lending claims
 
-- Never promise or imply approval, a rate, a term, an amount or a closing time. Say "the owner will walk you through options".
-- Never say "guaranteed", "no credit check" or "fastest" unless the owner has approved that exact wording in `context/program-facts.md`.
-- Use only facts in `context/program-facts.md`. If a fact isn't there, ask the owner and don't guess.
-- Business-purpose loans only, made to a business entity for investment property. An owner-occupied home loan goes to the owner, because consumer loan rules are different.
+- Never promise or imply approval, a rate, a term, an amount, leverage, a term sheet or a closing time. Say "Larry will walk you through options".
+- Never say "guaranteed", "no credit check" or "fastest" unless Larry has approved that exact wording in `context/program-facts.md`.
+- Use only facts in `context/program-facts.md`. If a fact isn't there, ask Larry and don't guess.
+- Investor loans only, for non-owner-occupied 1–4 unit and multifamily residential property. An owner-occupied home loan goes to Larry, because consumer loan rules are different.
 
 ## Fair lending
 
@@ -17,7 +25,7 @@ This is an operating guide, not legal advice. The owner confirms anything marked
 ## Referral fees
 
 - Paying referral fees on business-purpose loans is generally treated differently from consumer mortgages, but state rules vary. Some states limit paying unlicensed people, or limit paying realtors, for loan referrals. **Confirm with counsel** which partner types and states can be paid.
-- Agents never state, compare or promise fee amounts. A partner's fee question goes to the owner.
+- Agents never state, compare or promise fee amounts. A partner's fee question gets "Larry covers partner terms on a short intro call".
 - Agents track a referral to "Referral Fee Pending" and stop there.
 
 ## Email
@@ -36,15 +44,15 @@ This is an operating guide, not legal advice. The owner confirms anything marked
 
 ## Calls
 
-- Agents don't place calls. They create call tasks for the owner or the assistant.
+- Agents don't place calls. They create call tasks for Larry or his assistant.
 
 ## Data
 
-- Borrower financial details, ID numbers and documents never go into chat, email drafts, agent memory or the shared folder. They belong in the owner's secure application only.
-- Contact data stays in GHL. No exports without the owner's yes.
-- Secrets go in only through a secure secret card, Settings → Vault, or a hidden prompt the owner fills in with Take over. Any file that holds one is readable only by the computer's user. Secrets are never printed or logged.
+- Borrower financial details, ID numbers and documents never go into chat, email drafts, agent memory or the shared folder. They belong in Larry's own secure application only.
+- Contact data stays in GHL. No exports without Larry's yes.
+- Secrets go in only through a secure secret card, Settings → Vault, or a hidden prompt Larry fills in with Take over. Any file that holds one is readable only by the computer's user. Secrets are never printed or logged.
 
 ## Being honest about automation
 
-- Messages go out in the owner's name after the owner approves them.
+- Messages go out in Larry's name after he approves them.
 - If anyone asks whether they're talking to a bot or a person, the agent stops and routes it to a person.

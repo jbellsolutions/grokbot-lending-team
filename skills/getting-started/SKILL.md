@@ -1,34 +1,34 @@
 ---
 name: getting-started
-description: Use once, right after the team is created, to ask the owner the setup questions one at a time and save the answers. Also use when the owner says "redo setup" or "update my business details".
+description: Use once, right after the Chief of Staff is set up, to confirm what the team already knows about Larry and ClearBlu and ask only the open questions. Also use when Larry says "redo setup" or "update my business details".
 ---
 
 # Getting started
 
-Ask these questions one at a time. Wait for each answer. Keep each question to one or two lines. If the owner handed you a `CLIENT-CONTEXT.md`, read it first, skip what it answers, and confirm those answers in one message.
+`/workspace/lending-team/context/owner.md` and `/workspace/lending-team/context/program-facts.md` already hold what the build team knows about ClearBlu. Don't ask Larry anything those files answer.
 
-1. What's the business called, and what do you lend? Loan types, property types and the states you lend in.
-2. What time zone are you in, and which days and hours do you work?
-3. Does anyone work with you, like an assistant? What should they get: call tasks, reply tasks, both?
-4. What's your quick application link for borrowers? And the booking links for a partner intro call and a borrower call?
-5. What may the team say about your programs? For example: how fast you can close, what you don't require, minimums. Only things you're comfortable seeing in writing.
-6. What should the team never say?
-7. What do you call your partner types and tiers?
-8. What postal address goes in the email footer?
-9. Is text messaging (A2P) approved in your GoHighLevel yet?
-10. Which address do partner and borrower emails go out from?
-11. How many old contacts a day should reactivation reach? You can start small, like 50.
-12. Do you want hot items (a partner with a deal, a borrower ready to apply) sent to you right away, or only in the morning brief?
-13. Optional: do you want to connect your email and calendar so I can prep your calls and draft replies? I'd only draft. You'd always send.
+## 1. Confirm what's known, in one message
 
-Don't ask about referral fee amounts. The agents never need them.
+Send Larry a short summary of the **Known** section of `owner.md` and the **May say** section of `program-facts.md`, then ask: "Is all of this right? Anything to fix?" Write any correction into the file, in his words.
+
+## 2. Ask the open questions, one at a time
+
+Ask each line marked **ASK** in `owner.md`, one at a time. Then ask each item under **Ask Larry before using** in `program-facts.md`. Wait for each answer. Keep each question to one or two lines. Write each answer in place of the ASK.
+
+Then ask these two, if they aren't answered yet:
+1. "Anything you'd like the team to say about your programs that isn't on the list? For example, how fast you close, minimums, or what you don't require. Only things you're comfortable seeing in writing."
+2. "Anything the team should never say?"
+
+Answers to those two go into `program-facts.md` under **May say** and **Never say**, in Larry's words, with the date. Larry has already said yes to these edits by answering, but the Ask first rule may still show him a confirm card.
+
+Don't ask about referral fee amounts. The agents never need them, and Larry covers terms on the intro call.
 
 ## Where the answers go
 
-- Questions 1–4 and 7–13: `/workspace/lending-team/context/owner.md`, and a one-line memory for each.
-- Questions 5 and 6: `/workspace/lending-team/context/program-facts.md`, under "May say" and "Never say", in the owner's words.
-- Any phone number, address or link stays in the context files only, never in the repo.
+- Business, people, links and operating answers: `/workspace/lending-team/context/owner.md`, plus a one-line dated memory for each.
+- What the team may and may never say: `/workspace/lending-team/context/program-facts.md`.
+- Phone numbers, email addresses and the postal address stay in these workspace files only, never in the repo.
 
 ## When it's done
 
-Read the answers back in one short message and ask "anything to fix?". Then go on with Step 4 of START-HERE.md.
+Read the answers back in one short message and ask "anything to fix?". Then go on with Step 5 of START-HERE.md.

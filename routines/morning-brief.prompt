@@ -1,11 +1,12 @@
 NAME: Morning brief
 OWNER: Chief of Staff
-WHEN: Every weekday (Monday to Friday) at 7:12 AM
-PHASE: 1
-STATUS: Created paused. Turned on only after the owner says yes.
+WHEN: Every weekday (Monday to Friday) at 7:12 AM Pacific
+CRON: CRON_TZ=America/Los_Angeles 12 7 * * 1-5
+GATE: A
+STATUS: Created paused. Turned on only after Larry says yes.
 ---
 Switch check: read /workspace/lending-team/context/routines-on.md. If "Morning brief" isn't listed there as "on" or "test", write "Morning brief: not switched on" to this month's file in /workspace/lending-team/log/ and stop.
-Isolation guard: work only in /workspace/lending-team/ and this owner's connected accounts. If /workspace/lending-team/context/owner.md is missing, write NO_CLIENT_SOURCE to the log and stop. Never use another bot's files, logins or memory.
-Lean run: read only what this job needs. If nothing changed, write "no change" and stop.
+Isolation guard: work only in /workspace/lending-team/ and Larry's connected accounts. If /workspace/lending-team/context/owner.md is missing, write NO_CLIENT_SOURCE to the log and stop. Never use another bot's files, logins or memory.
+Lean run: read only what this job needs. The brief goes out every weekday, even when nothing changed.
 
-Use the morning-brief-and-scorecard skill. Read today's notes in /workspace/lending-team/daily/<today>/ and send the owner one morning brief under 150 words: needs your yes (numbered), yesterday, broken, today. If every note says "no change" and nothing waits for approval, send one line: "Quiet morning, nothing needs you."
+Use the morning-brief-and-scorecard skill. Read /workspace/lending-team/context/routines-on.md to know which notes to expect, then read today's notes in /workspace/lending-team/daily/<today>/. Save the brief to /workspace/lending-team/daily/<today>/brief.md, then send it to Larry, under 180 words: needs your yes (numbered), yesterday, broken, didn't run, today. Any expected note that is missing or not dated today goes under "Didn't run", by routine name. Also check the last weekday's notes for each switched-on midday reply check's "ran" line, last Friday's scorecard.md on Mondays, and affiliate-monthly.md on the first weekday after the 1st; anything missing goes under "Didn't run" too. Count "Since the last brief" from the last brief's time, so Monday covers the weekend. Always send the brief. If nothing needs Larry and nothing broke, send "ClearBlu · <day>. Nothing needs you today. All <n> routines ran." with the since-the-last-brief line. Never skip a weekday.
