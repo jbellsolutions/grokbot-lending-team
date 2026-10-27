@@ -154,7 +154,7 @@ Tell the owner in one short message: what's set up, which routines are on, which
 2. Create **Partner Recruiter** (`agents/04-partner-recruiter.md`) and **Borrower Desk** (`agents/05-borrower-desk.md`) the same way as in Step 5.
 3. **The API key.** The Partner Recruiter asks for it with a secure secret card named `SMARTLEAD_API_KEY` or `INSTANTLY_API_KEY`, then checks it with one read-only call (list campaigns). If its commands can't see the key, it opens a terminal and runs
    ```
-   mkdir -p ~/.config/lending-team && (umask 077; read -rsp "Paste the API key, then press Return: " K && printf 'API_KEY=%s\n' "$K" > ~/.config/lending-team/coldemail.env)
+   bash -c 'mkdir -p ~/.config/lending-team && umask 077 && read -rsp "Paste the API key, then press Return: " K && printf "API_KEY=%s\n" "$K" > ~/.config/lending-team/coldemail.env'
    ```
    and the owner pastes the key with **Take over**. Never print the key.
 4. Create their routines from the `routines/` files marked `PHASE: 2`, switched off. Test and turn on as in Step 8.
