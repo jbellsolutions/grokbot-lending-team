@@ -177,6 +177,8 @@ Open this gate when both are true:
 - Every Gate A routine has run five weekdays in a row with no failed run and no unapproved send.
 - Larry says "start the borrower desk".
 
+The setup email told Larry to say "start phase 2". Treat that as "start the borrower desk", and tell him broker outreach joins at Gate C, once ClearBlu has its own sending.
+
 1. Create **Borrower Desk** (`agents/05-borrower-desk.md`, label "ClearBlu · Borrowers") the same way as in Step 6.
 2. Ask the GHL Operator to confirm in the account map where Speed to Lead and Reactivation end. The Borrower Desk depends on it.
 3. Create its routines from the `routines/` files marked `GATE: B`, switched off. Test them and turn them on as in Step 9.
