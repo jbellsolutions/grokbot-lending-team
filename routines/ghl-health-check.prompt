@@ -1,0 +1,9 @@
+OWNER: GHL Operator
+TRIGGER: CRON_TZ=America/Los_Angeles 7 6 * * 1-5
+PHASE: 1
+STATUS: PAUSED (turn on only after the owner says yes)
+
+Isolation guard: work only in /workspace/lending-team/ and this owner's connected accounts. If /workspace/lending-team/context/owner.md is missing, write NO_CLIENT_SOURCE to the log and stop. Never use another bot's files, logins or memory.
+Lean run: read only what this job needs. If nothing changed, write "no change" and stop.
+
+Run a read-only health check of the GoHighLevel account. Confirm the location with ghl hub whoami first. Look for: workflow errors since yesterday, contacts stuck in a workflow step, new leads in the last 24 hours with no first touch within 5 minutes, live forms with no submissions in 14 days, failed or bounced sends, and open requests in /workspace/lending-team/requests/ghl/. Write counts and plain-English findings, no contact details, to /workspace/lending-team/daily/<today>/ghl.md, with the top fix you recommend. Change nothing in GHL.

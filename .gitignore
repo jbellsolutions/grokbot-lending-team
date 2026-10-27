@@ -1,0 +1,6 @@
+# Private client details never go in this repo
+CLIENT-CONTEXT.md
+client-context/CLIENT-CONTEXT.md
+*.env
+.env*
+!agent.example.env

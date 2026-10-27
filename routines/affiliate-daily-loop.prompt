@@ -1,0 +1,9 @@
+OWNER: Affiliate Manager
+TRIGGER: CRON_TZ=America/Los_Angeles 23 6 * * 1-5
+PHASE: 1
+STATUS: PAUSED (turn on only after the owner says yes)
+
+Isolation guard: work only in /workspace/lending-team/ and this owner's connected accounts. If /workspace/lending-team/context/owner.md is missing, write NO_CLIENT_SOURCE to the log and stop. Never use another bot's files, logins or memory.
+Lean run: read only what this job needs. If nothing changed, write "no change" and stop.
+
+Run @lending-partner-lifecycle. Sweep the partner pipeline, list stage changes the rules call for, build today's touch queue (40 max) and draft each touch. Run @lending-compliance on every draft. Write the numbered approval list and any hot items to /workspace/lending-team/daily/<today>/affiliate.md. Send nothing; sends happen only after the owner approves, when the Chief of Staff delivers the approved items.

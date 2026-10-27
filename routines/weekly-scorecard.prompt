@@ -1,0 +1,9 @@
+OWNER: Chief of Staff
+TRIGGER: CRON_TZ=America/Los_Angeles 17 15 * * 5
+PHASE: 1
+STATUS: PAUSED (turn on only after the owner says yes)
+
+Isolation guard: work only in /workspace/lending-team/ and this owner's connected accounts. If /workspace/lending-team/context/owner.md is missing, write NO_CLIENT_SOURCE to the log and stop. Never use another bot's files, logins or memory.
+Lean run: read only what this job needs. If nothing changed, write "no change" and stop.
+
+Run @morning-brief-and-scorecard for the Friday scorecard. Use this week's daily notes, GHL reads and the cold email tool's stats. Send the owner one screen: partner funnel, borrower funnel, past clients, health, three wins, three stalls, one focus for next week. Say where a number is unavailable; never estimate. Save a copy to /workspace/lending-team/log/scorecards/<date>.md.

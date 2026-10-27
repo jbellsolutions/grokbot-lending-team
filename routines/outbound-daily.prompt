@@ -1,0 +1,9 @@
+OWNER: Partner Recruiter
+TRIGGER: CRON_TZ=America/Los_Angeles 41 6 * * 1-5
+PHASE: 2
+STATUS: PAUSED (turn on only after the owner says yes)
+
+Isolation guard: work only in /workspace/lending-team/ and this owner's connected accounts. If /workspace/lending-team/context/owner.md is missing, write NO_CLIENT_SOURCE to the log and stop. Never use another bot's files, logins or memory.
+Lean run: read only what this job needs. If nothing changed, write "no change" and stop.
+
+Run @cold-outbound daily check through the Smartlead or Instantly API (never the web app). For each campaign: sent, replies, positive replies, bounces, complaints, leads left. Pause any campaign over 3% bounces or 0.1% complaints and say so. List replies waiting more than 4 business hours and any campaign that needs new leads or new copy as numbered approval items. Write to /workspace/lending-team/daily/<today>/outbound.md.

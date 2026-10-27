@@ -1,0 +1,9 @@
+OWNER: Chief of Staff
+TRIGGER: CRON_TZ=America/Los_Angeles 12 7 * * 1-5
+PHASE: 1
+STATUS: PAUSED (turn on only after the owner says yes)
+
+Isolation guard: work only in /workspace/lending-team/ and this owner's connected accounts. If /workspace/lending-team/context/owner.md is missing, write NO_CLIENT_SOURCE to the log and stop. Never use another bot's files, logins or memory.
+Lean run: read only what this job needs. If nothing changed, write "no change" and stop.
+
+Run @morning-brief-and-scorecard. Read today's notes in /workspace/lending-team/daily/<today>/ and send the owner one morning brief under 150 words: needs your yes (numbered), yesterday, broken, today. If every note says "no change" and nothing waits for approval, send one line: "Quiet morning, nothing needs you."

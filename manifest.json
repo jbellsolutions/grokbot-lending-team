@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "name": "Lending Business Team for GrokBot",
+  "description": "A GrokBot agent team that runs a business-purpose real-estate lender's partner program, partner recruiting, borrower follow-up and GoHighLevel account, with the owner approving every outbound action.",
+  "entry_point": "START-HERE.md",
+  "primary_bot": "Chief of Staff",
+  "workspace": "/workspace/lending-team",
+  "agents": [
+    {
+      "name": "Chief of Staff",
+      "charter": "agents/01-chief-of-staff.md",
+      "phase": 1,
+      "primary": true,
+      "skills": [
+        "getting-started",
+        "morning-brief-and-scorecard",
+        "lending-compliance"
+      ],
+      "routines": [
+        "routines/morning-brief.prompt",
+        "routines/weekly-scorecard.prompt"
+      ]
+    },
+    {
+      "name": "GHL Operator",
+      "charter": "agents/02-ghl-operator.md",
+      "phase": 1,
+      "skills": [
+        "ghl-account-audit",
+        "lending-compliance",
+        "ghl-super-hub:ghl-operator",
+        "ghl-super-hub:ghl-api",
+        "ghl-super-hub:ghl-browser",
+        "ghl-super-hub:ghl-workflows",
+        "ghl-super-hub:ghl-sites",
+        "ghl-super-hub:ghl-email",
+        "ghl-super-hub:ghl-affiliates",
+        "ghl-super-hub:ghl-memberships",
+        "ghl-super-hub:ghl-courses"
+      ],
+      "routines": [
+        "routines/ghl-health-check.prompt"
+      ]
+    },
+    {
+      "name": "Affiliate Manager",
+      "charter": "agents/03-affiliate-manager.md",
+      "phase": 1,
+      "skills": [
+        "lending-partner-lifecycle",
+        "partner-reply-triage",
+        "lending-compliance",
+        "ghl-super-hub:ghl-affiliates"
+      ],
+      "routines": [
+        "routines/affiliate-daily-loop.prompt",
+        "routines/partner-reply-triage.prompt",
+        "routines/monthly-partner-portfolio.prompt"
+      ]
+    },
+    {
+      "name": "Partner Recruiter",
+      "charter": "agents/04-partner-recruiter.md",
+      "phase": 2,
+      "skills": [
+        "cold-outbound",
+        "partner-reply-triage",
+        "lending-compliance"
+      ],
+      "routines": [
+        "routines/outbound-daily.prompt",
+        "routines/outbound-reply-triage.prompt"
+      ]
+    },
+    {
+      "name": "Borrower Desk",
+      "charter": "agents/05-borrower-desk.md",
+      "phase": 2,
+      "skills": [
+        "borrower-follow-up",
+        "lending-compliance"
+      ],
+      "routines": [
+        "routines/borrower-daily.prompt",
+        "routines/borrower-reply-triage.prompt"
+      ]
+    },
+    {
+      "name": "Intent Scout",
+      "charter": "agents/90-reserved-intent-scout.md",
+      "phase": "reserved",
+      "skills": [],
+      "routines": []
+    }
+  ],
+  "external_skills": [
+    {
+      "repo": "https://github.com/jbellsolutions/ghl-super-hub",
+      "path": "skills/",
+      "install": "bash install.sh --link"
+    }
+  ],
+  "required_approval_actions": [
+    "send or publish any external message",
+    "launch, change or grow a campaign, or load a list",
+    "create, publish or change a GHL workflow, form, pipeline, custom field or calendar",
+    "accept or reject a partner",
+    "change program facts, terms or approved claims",
+    "export contact data",
+    "create or turn on a routine",
+    "spend money or start a subscription"
+  ],
+  "permanently_denied_actions": [
+    "state, negotiate, approve or pay a referral fee or commission",
+    "quote rates, terms, approval odds, closing times or loan amounts, or promise partner income",
+    "underwrite, price, issue a term sheet or move a loan past Quick App Sent",
+    "ask for or store Social Security numbers, bank details, credit reports, passwords or ID numbers",
+    "delete anything in GHL",
+    "move money or change billing, payment, phone number or A2P settings",
+    "use the owner's login, pull session cookies or get around a permission",
+    "claim to be a person when asked",
+    "change its own permissions or these rules"
+  ]
+}

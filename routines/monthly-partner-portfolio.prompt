@@ -1,0 +1,9 @@
+OWNER: Affiliate Manager
+TRIGGER: CRON_TZ=America/Los_Angeles 37 8 1 * *
+PHASE: 1
+STATUS: PAUSED (turn on only after the owner says yes)
+
+Isolation guard: work only in /workspace/lending-team/ and this owner's connected accounts. If /workspace/lending-team/context/owner.md is missing, write NO_CLIENT_SOURCE to the log and stop. Never use another bot's files, logins or memory.
+Lean run: read only what this job needs. If nothing changed, write "no change" and stop.
+
+Review the whole partner portfolio for last month: counts by stage and tier, new partners, first referrals, referrals by partner and source, partners reactivated, partners who slipped to quiet or dormant, and the top ten partners to call personally this month with one line on why. Propose the group intro call date and invite list. Write it to /workspace/lending-team/daily/<today>/affiliate-monthly.md for the Chief of Staff.
